@@ -1,0 +1,20 @@
+# Spring boot application
+server:
+  port: 9093
+spring:
+  application:
+    name: dubbo-consumer-demo
+
+# dubbo consumer 配置
+dubbo:
+  application:
+    id: dubbo-consumer-demo
+    name: dubbo-consumer-demo
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+  registry:
+    id: my-registry
+    address: zookeeper://192.168.88.132:2181
+

@@ -1,0 +1,58 @@
+# Spring boot application
+server:
+  port: 9092
+spring:
+  application:
+    name: dubbo-provider-demo
+
+# Spring boot 健康监控
+# Dubbo Health
+# StatusChecker Name defaults (default : "memory", "load" )
+# StatusChecker Name extras (default : empty )
+management:
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+
+
+dubbo:
+# 扫描 dubbo 的 service 注解
+# Base packages to scan Dubbo Components (e.g @Service , @Reference)
+  scan:
+    base-packages: com.mace.dubbo.provider.service.impl
+# dubbo provider springboot 配置
+
+#  在监控平台显示程序的名字
+  application:
+    id: dubbo-provider-demo
+    name: dubbo-provider-demo
+
+#  相当于 <dubbo:protocol name="dubbo" port="33335"></dubbo:protocol>
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 33333
+    status: server
+
+# RegistryConfig Bean
+# <dubbo:registry address="47.95.244.39" port="2181" protocol="zookeeper"></dubbo:registry>
+  registry:
+    id: my-registry
+    address: zookeeper://192.168.88.132:2181
+
+# Dubbo Endpoint (default status is disable)
+endpoints:
+  dubbo:
+    enabled: true
+
+
+
+
+
+
+
+
+
+
